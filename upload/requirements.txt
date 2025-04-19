@@ -1,0 +1,4 @@
+Flask==3.1.0 
+requests==2.28.0
+Flask-MySQLdb==2.0.0
+pandas==2.2.3

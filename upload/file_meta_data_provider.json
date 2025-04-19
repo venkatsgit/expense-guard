@@ -1,0 +1,35 @@
+{
+    "expenses": {
+        "required_headers": [
+            "date",
+            "description",
+            "expense",
+            "currency_code"
+        ],
+        "sql_table_name": "expenses",
+        "sql_schema_name": "expense_insights",
+        "header_mapping": {
+            "currency": "currency_code",
+            "expense amount": "expense"
+        },
+        "empty_fields_to_add": [
+            "category"
+        ],
+        "sql_column_names": [
+            "user_id",
+            "file_id",
+            "expense",
+            "currency_code",
+            "description",
+            "category",
+            "date",
+            "created_at"
+        ],
+        "model_processing": [
+            {
+               "url" : "http://expense-category:8082/classify",
+               "model":"classifier"
+            }
+        ]
+    }
+}
