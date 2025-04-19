@@ -1,0 +1,28 @@
+# --- Core API ---
+Flask==3.1.0
+requests==2.28.0
+Flask-MySQLdb==2.0.0
+PyJWT==2.8.0
+
+# --- Few-Shot NL to SQL / LangChain ---
+langchain==0.1.0
+langchain-community==0.0.13
+chromadb==0.4.22
+sentence-transformers==2.2.2
+huggingface-hub==0.20.1
+pydantic==2.5.2
+typing-extensions==4.8.0
+numpy==1.24.4
+torch==2.1.2
+transformers==4.35.2
+
+# --- NL to SQL model tools ---
+accelerate==0.29.2
+sentencepiece==0.1.99
+protobuf==4.24.4
+einops==0.7.0
+
+# --- SQL & DB access ---
+mysql-connector-python==9.2.0
+pyodbc==5.2.0  # for Azure SQL / Synapse
+SQLAlchemy==2.0.40 # to manage connection pool

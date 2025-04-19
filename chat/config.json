@@ -1,0 +1,44 @@
+[
+  {
+    "project_name": "expense_insights",
+    "model_path": "seeklhy/codes-1b",
+    "chroma_db_path": "./chroma_db",
+    "db_type": "mysql",
+    "connection_string": "mysql+pymysql://remote_user:Str0ng%40Pass123@localhost/expense_insights",
+    "schema": {
+      "mysql": "CREATE TABLE `expenses` (\n  `id` int NOT NULL AUTO_INCREMENT,\n  `user_id` varchar(45) NOT NULL,\n  `file_id` int NOT NULL,\n  `expense` decimal(7,2) NOT NULL,\n  `currency_code` varchar(45) NOT NULL,\n  `description` varchar(45) NOT NULL,\n  `category` varchar(45) DEFAULT NULL,\n  `date` date NOT NULL,\n  `created_at` datetime NOT NULL,\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `idx_unique_expense` (`user_id`,`expense`,`currency_code`,`description`)\n);"
+    },
+    "examples": {
+      "mysql": [
+        {
+          "prompt": "Show me all my expenses from last month",
+          "sql": "SELECT * FROM expenses WHERE user_id = '{{user_id}}' AND date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE() ORDER BY date DESC;"
+        },
+        {
+          "prompt": "What's my total spending on food this year?",
+          "sql": "SELECT SUM(expense) as total_food_expenses FROM expenses WHERE user_id = '{{user_id}}' AND category = 'Food' AND YEAR(date) = YEAR(CURDATE());"
+        },
+        {
+          "prompt": "List my top 5 highest expenses",
+          "sql": "SELECT id, category, expense, description, date FROM expenses WHERE user_id = '{{user_id}}' ORDER BY expense DESC LIMIT 5;"
+        },
+        {
+          "prompt": "How much did I spend on each category last quarter?",
+          "sql": "SELECT category, SUM(expense) as total_amount FROM expenses WHERE user_id = '{{user_id}}' AND QUARTER(date) = QUARTER(DATE_SUB(CURDATE(), INTERVAL 1 QUARTER)) AND YEAR(date) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 QUARTER)) GROUP BY category ORDER BY total_amount DESC;"
+        },
+        {
+          "prompt": "Show me expenses with missing descriptions",
+          "sql": "SELECT id, category, expense, date FROM expenses WHERE user_id = '{{user_id}}' AND (description IS NULL OR description = '');"
+        },
+        {
+          "prompt": "What did I spend at Starbucks last week?",
+          "sql": "SELECT SUM(expense) as total_amount FROM expenses WHERE user_id = '{{user_id}}' AND description LIKE '%Starbucks%' AND date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 WEEK) AND CURDATE();"
+        },
+        {
+          "prompt": "Show my expenses grouped by currency code",
+          "sql": "SELECT currency_code, COUNT(*) as num_transactions, SUM(expense) as total_amount FROM expenses WHERE user_id = '{{user_id}}' GROUP BY currency_code ORDER BY total_amount DESC;"
+        }
+      ]
+    }
+  }
+]

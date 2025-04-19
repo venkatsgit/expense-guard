@@ -6,3 +6,4 @@
 .idea/vcs.xml
 upload/venv/*
 category/venv/*
+chat/venv/*

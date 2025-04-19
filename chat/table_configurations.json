@@ -1,0 +1,35 @@
+[
+    {
+        "project_name": "expense_insights",
+        "connection_string": "mysql+pymysql://remote_user:Str0ng%40Pass123@localhost/expense_insights",
+        "db_type": "mysql",
+        "db_connection_config": {
+            "user_name": "root",
+            "password": "root",
+            "host": "localhost",
+            "database": "expense_insights"
+        },
+        "is_user_filter_needed": true,
+        "table_info": {
+            "expense_insights.expenses": {
+                "expense": "Amount of the expense (numeric)",
+                "currency_code": "3-letter currency code (e.g., USD, EUR)",
+                "description": "Text description of the expense",
+                "category": "Category of expense (e.g., groceries, utilities)",
+                "date": "Date of the expense (timestamp)",
+                "user_id": "User identifier"
+            }
+        },
+        "rules": [
+            "Return only executable SQL queries, no full data dumps.",
+            "NO UPDATE/DELETE queries.",
+            "Apply `currency_code` as a dimension, not as a filter in WHERE.",
+            "Apply `date` filter ONLY IF the user explicitly mentions a date range or specific date.",
+            "Restrict strictly to `user_id={user_id}`.",
+            "Use `category` when relevant.",
+            "Convert timestamps to GMT for date queries.",
+            "Use regex for `description` if needed.",
+            "NEVER query without a limit."
+        ]
+    }
+]
