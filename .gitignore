@@ -5,3 +5,4 @@
 .idea/modules.xml
 .idea/vcs.xml
 upload/venv/*
+category/venv/*

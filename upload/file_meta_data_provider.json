@@ -25,9 +25,9 @@
             "date",
             "created_at"
         ],
-        "model_processing": [
+        "categorize": [
             {
-               "url" : "http://expense-category:8082/classify",
+               "url" : "http://localhost:8082/classify",
                "model":"classifier"
             }
         ]

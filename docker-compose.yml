@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: expense_insights
+      MYSQL_USER: remote_user
+      MYSQL_PASSWORD: Str0ng@Pass123
+    ports:
+      - "3306:3306"
+    volumes:
+      - /Users/venkateshsubramanian/exp_db:/var/lib/mysql  # Persistent database storage
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # create the table if does not exist
+
+  categoy:
+    build:
+      context: ./category
+    container_name: category
+    restart: always
+    ports:
+      - "8082:8082"
+
+  upload:
+    build:
+      context: ./upload
+    container_name: upload
+    restart: always
+    ports:
+      - "8081:8081"

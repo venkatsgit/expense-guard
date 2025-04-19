@@ -1,0 +1,71 @@
+categories:
+  - Transport
+  - Groceries
+  - Entertainment
+  - Dining
+  - Shopping
+  - Utilities
+  - Housing
+  - Healthcare
+  - Education
+  - Travel
+  - Tax
+
+rules:
+  transport: "Any ride-sharing services (Grab, Uber, Lyft), taxis, bus tickets, train fares, vehicle rentals, or fuel purchases."
+  groceries: "Food items purchased from supermarkets, convenience stores, or specialty food shops for home consumption."
+  entertainment: "Movie theaters, concerts, events, streaming services, theme parks, and recreational activities."
+  dining: "Restaurants, cafes, food courts, bars, and other eating establishments."
+  shopping: "Retail purchases, clothing, electronics, and non-grocery merchandise."
+  utilities: "Bills for electricity, water, internet, phone services, and other utilities."
+  housing: "Rent, mortgage payments, home maintenance, furnishings, and household supplies."
+  healthcare: "Medical appointments, medications, insurance premiums, and health-related expenses."
+  education: "Tuition, books, courses, educational materials, and school supplies."
+  travel: "Flights, hotels, vacation packages, and tourist activities."
+  tax: "IRAS,IRS, Income Tax and GST."
+
+examples:
+  - transaction: "Grab Ride to Mall"
+    category: "Transport"
+  - transaction: "Uber from Airport"
+    category: "Transport"
+  - transaction: "Cold Storage Groceries"
+    category: "Groceries"
+  - transaction: "NTUC FairPrice"
+    category: "Groceries"
+  - transaction: "Golden Village Cinemas"
+    category: "Entertainment"
+  - transaction: "Netflix Subscription"
+    category: "Entertainment"
+  - transaction: "Din Tai Fung Dinner"
+    category: "Dining"
+  - transaction: "McDonald's"
+    category: "Dining"
+  - transaction: "Uniqlo Purchase"
+    category: "Shopping"
+  - transaction: "Apple Store"
+    category: "Shopping"
+  - transaction: "StarHub Monthly Bill"
+    category: "Utilities"
+  - transaction: "SP Group Electric Bill"
+    category: "Utilities"
+  - transaction: "Monthly Rent Payment"
+    category: "Housing"
+  - transaction: "IKEA Furniture"
+    category: "Housing"
+  - transaction: "Guardian Pharmacy"
+    category: "Healthcare"
+  - transaction: "Polyclinic Visit"
+    category: "Healthcare"
+  - transaction: "Coursera Subscription"
+    category: "Education"
+  - transaction: "NLB Book Purchase"
+    category: "Education"
+  - transaction: "Singapore Airlines Ticket"
+    category: "Travel"
+  - transaction: "Booking.com Hotel Reservation"
+    category: "Travel"
+  - transaction: "Mustafa SuperMarket"
+    category: "Groceries"
+  - transaction: "IRAS"
+    category: "Tax"

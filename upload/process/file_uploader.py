@@ -87,8 +87,8 @@ class FileUploader:
 
             db.commit()
             self.update_upload_history("SUCCESS", "uploaded successfully")
-            if 'model_processing' in file_meta_data:
-                self.call_model_api()
+            if 'categorize' in file_meta_data:
+                self.categorize_expenses()
             # cursor.close()
             return jsonify({'status': 'success', 'message': 'file uploaded successfully!'}), 200
         except Exception as e:
@@ -137,10 +137,10 @@ class FileUploader:
         except Exception as e:
             print(e)
 
-    def call_model_api(self):
+    def categorize_expenses(self):
         try:
             file_meta_data = self.file_meta_data
-            model_processing = file_meta_data['model_processing'][0]
+            model_processing = file_meta_data['categorize'][0]
             url = model_processing['url']
             payload = {
                 'user_id': self.user_id,

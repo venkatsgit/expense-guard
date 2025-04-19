@@ -1,6 +1,9 @@
-# Streamlit Expense Insight App
+# Upload
 
-This is a Python flask application that allows users to upload CSV files.
+- Endpoints to upload the expenses in the CSV format
+  - upload the csv
+  - to view the history of file uploads 
+  - list and filter the expenses
 
 ## Prerequisites
 
@@ -15,8 +18,8 @@ Before running the app, ensure you have the following installed:
 1. **Clone the repository**
 
    ```bash
-    git clone https://revanth17@bitbucket.org/striver-agents/expense-insights.git
-   cd expense_upload_api
+    git clone git@github.com:venkatsgit/expense-guard.git
+   cd upload
    ```
 
 2. **Create a virtual environment (optional but recommended)**
