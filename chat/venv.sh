@@ -39,6 +39,7 @@ fi
 
 # Activate virtual environment
 echo "Activating virtual environment..."
+chmod +x $VENV_ACTIVATE
 source $VENV_ACTIVATE
 
 # Check if requirements.txt exists

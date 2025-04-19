@@ -8,8 +8,7 @@ from process.upload_history import get_upload_history
 @api_bp.route('upload', methods=['POST'])
 def upload_csv():
 
-    #user_id = g.user_id
-    user_id = "123"
+    user_id = g.user_id
     if 'file' not in request.files or 'file_name' not in request.form:
         return jsonify({'status': 'error', 'message': 'bad request'}), 400
 

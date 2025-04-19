@@ -4,8 +4,8 @@
         "connection_string": "mysql+pymysql://remote_user:Str0ng%40Pass123@localhost/expense_insights",
         "db_type": "mysql",
         "db_connection_config": {
-            "user_name": "root",
-            "password": "root",
+            "user_name": "remote_user",
+            "password": "Str0ng%40Pass123",
             "host": "localhost",
             "database": "expense_insights"
         },

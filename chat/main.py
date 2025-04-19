@@ -26,8 +26,7 @@ init_db(app)
 def home():
     return "Hello, Flask!"
 
-
-# @app.before_request
+@app.before_request
 def check_token():
     if request.endpoint != "health":
         try:
@@ -57,6 +56,7 @@ def chat():
         return jsonify({'status': 'error', 'message': 'Invalid input'}), 400
 
     user_id = g.get('user_id', "")
+    
 
     project_config = load_project_config(project_name)
     if not project_config:
