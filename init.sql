@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `expenses` (
   `file_id` INT NOT NULL,
   `expense` DECIMAL(7,2) NOT NULL,
   `currency_code` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(100) NOT NULL,
   `category` VARCHAR(45) DEFAULT NULL,
   `date` DATE NOT NULL,
   `created_at` DATETIME NOT NULL,
