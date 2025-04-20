@@ -16,7 +16,7 @@ services:
       - /Users/venkateshsubramanian/exp_db:/var/lib/mysql  # Persistent database storage
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # create the table if does not exist
 
-  categoy:
+  category:
     build:
       context: ./category
     container_name: category
@@ -31,3 +31,11 @@ services:
     restart: always
     ports:
       - "8081:8081"
+
+  chat:
+    build:
+      context: ./chat
+    container_name: chat
+    restart: always
+    ports:
+      - "8083:8083"
