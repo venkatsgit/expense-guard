@@ -12,31 +12,15 @@
       "mysql": [
         {
           "prompt": "Show me all my expenses from last month",
-          "sql": "SELECT * FROM expenses WHERE user_id = '{{user_id}}' AND date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE() ORDER BY date DESC;"
+          "sql": "SELECT * FROM expenses WHERE user_id = '{{user_id}}' AND date >= DATE_FORMAT(CURDATE() - INTERVAL 24 MONTH, '%Y-%m-01') AND date < DATE_FORMAT(CURDATE(), '%Y-%m-01') ORDER BY date;"
         },
         {
-          "prompt": "What's my total spending on food this year?",
-          "sql": "SELECT SUM(expense) as total_food_expenses FROM expenses WHERE user_id = '{{user_id}}' AND category = 'Food' AND YEAR(date) = YEAR(CURDATE());"
+          "prompt": "How much Tax I have paid so far?",
+          "sql": "select sum(expense),currency_code from expense_insights.expenses e  where user_id='{{user_id}}' and e.category ='Tax' group by currency_code;"
         },
         {
           "prompt": "List my top 5 highest expenses",
-          "sql": "SELECT id, category, expense, description, date FROM expenses WHERE user_id = '{{user_id}}' ORDER BY expense DESC LIMIT 5;"
-        },
-        {
-          "prompt": "How much did I spend on each category last quarter?",
-          "sql": "SELECT category, SUM(expense) as total_amount FROM expenses WHERE user_id = '{{user_id}}' AND QUARTER(date) = QUARTER(DATE_SUB(CURDATE(), INTERVAL 1 QUARTER)) AND YEAR(date) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 QUARTER)) GROUP BY category ORDER BY total_amount DESC;"
-        },
-        {
-          "prompt": "Show me expenses with missing descriptions",
-          "sql": "SELECT id, category, expense, date FROM expenses WHERE user_id = '{{user_id}}' AND (description IS NULL OR description = '');"
-        },
-        {
-          "prompt": "What did I spend at Starbucks last week?",
-          "sql": "SELECT SUM(expense) as total_amount FROM expenses WHERE user_id = '{{user_id}}' AND description LIKE '%Starbucks%' AND date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 WEEK) AND CURDATE();"
-        },
-        {
-          "prompt": "Show my expenses grouped by currency code",
-          "sql": "SELECT currency_code, COUNT(*) as num_transactions, SUM(expense) as total_amount FROM expenses WHERE user_id = '{{user_id}}' GROUP BY currency_code ORDER BY total_amount DESC;"
+          "sql": "SELECT category, currency_code,SUM(expense) AS total_expense FROM expenses WHERE user_id = '{{user_id}}' GROUP BY category,currency_code ORDER BY total_expense DESC LIMIT 5;"
         }
       ]
     }
