@@ -11,8 +11,8 @@ class BatchClassifier:
         self.unique_description_count = 0
         self.classifier = ExpenseClassifier(
     "config.yaml",
-    classification_model="MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",  # Free model with good performance
-    embedding_model="sentence-transformers/all-MiniLM-L6-v2"  # Free embedding model
+    classification_model="MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    embedding_model="sentence-transformers/all-MiniLM-L6-v2"
 )
 
     def process_table_data(self):

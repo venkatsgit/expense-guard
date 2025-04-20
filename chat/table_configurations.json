@@ -29,7 +29,6 @@
             "Use `category` when relevant.",
             "Convert timestamps to GMT for date queries.",
             "Use regex for `description` if needed.",
-            "NEVER query without a limit.",
             "Use group currency code in all the queries"
         ]
     }

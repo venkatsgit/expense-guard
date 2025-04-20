@@ -26,7 +26,16 @@ docker-compose up -d (this will bring up the containers run it in background)
 
 ## System components 
 
-Two critical components are Expense Categorizer and Expense Chat 
+Two critical components are 
+ - Expense Categorizer 
+ - Expense Chat 
 
 ### Expense chat 
 ![Image](https://github.com/user-attachments/assets/6c311492-1c1d-4707-86f3-75987385a106)
+
+### Models - Generative API - used
+
+|Feature | ML Models|
+|--------|----------|
+|Expense Categorization|Zero-shot: MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli <br> Embeddings: sentence-transformers/all-MiniLM-L6-v2|
+|Expense chat | sentence-transformers/all-MiniLM-L6-v2 <br> gemini-2.0-flash|
