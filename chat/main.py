@@ -42,6 +42,7 @@ def check_token():
             if response.status_code == 200:
                 response_json = response.json()
                 g.user_id = response_json['id']
+                g.email = response_json['email']
             else:
                 return jsonify({"error": "Missing or invalid Authorization header"}), 401
 
@@ -55,7 +56,7 @@ def chat():
     if not user_query:
         return jsonify({'status': 'error', 'message': 'Invalid input'}), 400
 
-    user_id = g.get('user_id', "")
+    user_id = g.get('email', "")
     
 
     project_config = load_project_config(project_name)
