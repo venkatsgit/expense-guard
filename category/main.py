@@ -10,7 +10,7 @@ app = Flask(__name__)
 classifier = pipeline("zero-shot-classification",
                       model="facebook/bart-large-mnli")
 
-app.config["MYSQL_HOST"] = os.getenv("MYSQL_HOST", "127.0.0.1")
+app.config["MYSQL_HOST"] = os.getenv("MYSQL_HOST", "host.docker.internal")
 app.config["MYSQL_PORT"] = int(os.getenv("MYSQL_PORT", 3306))
 app.config["MYSQL_USER"] = os.getenv("MYSQL_USER", "remote_user")
 app.config["MYSQL_PASSWORD"] = os.getenv("MYSQL_PASSWORD", "Str0ng@Pass123")

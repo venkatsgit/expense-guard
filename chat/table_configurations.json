@@ -6,7 +6,7 @@
         "db_connection_config": {
             "user_name": "remote_user",
             "password": "Str0ng%40Pass123",
-            "host": "localhost",
+            "host": "host.docker.internal",
             "database": "expense_insights"
         },
         "is_user_filter_needed": true,

@@ -7,7 +7,8 @@ import os
 
 app = Flask(__name__)
 
-app.config["MYSQL_HOST"] = os.getenv("MYSQL_HOST", "mysql")
+
+app.config["MYSQL_HOST"] = os.getenv("MYSQL_HOST", "host.docker.internal")
 app.config["MYSQL_PORT"] = int(os.getenv("MYSQL_PORT", 3306))
 app.config["MYSQL_USER"] = os.getenv("MYSQL_USER", "remote_user")
 app.config["MYSQL_PASSWORD"] = os.getenv("MYSQL_PASSWORD", "Str0ng@Pass123")
@@ -41,6 +42,7 @@ def check_token():
                 response_json = response.json()
                 #  temp user_id from google need to handle this
                 request.user_id = response_json['id']
+                request.email = response_json['email']
             else:
                 return jsonify({"error": "Missing or invalid Authorization header"}), 401
 
