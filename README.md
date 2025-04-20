@@ -10,7 +10,7 @@ For example:
 
 A bank statement shows "IRASITXSjhdddA $700" → The system detects this as "Tax" A business expense shows "Grab Ride $15" → The system detects this as "Transport" By using AI to recognize brands, keywords, and patterns, your expenses are neatly organized without manual work. This allows you to focus on making better financial decisions rather than spending time tracking expenses.
 
-### Ask Questions in Simple Language
+### Ask Questions 
 Once your expenses are categorized, you don’t need complex reports or spreadsheets to understand your spending. You can simply ask questions like:
 
 "What was our travel budget last quarter?" "Are we overspending on utilities?" "Which category should we reduce spending on?"
@@ -25,3 +25,8 @@ docker-compose down (tear down)
 docker-compose up -d (this will bring up the containers run it in background)
 
 ## System components 
+
+Two critical components are Expense Categorizer and Expense Chat 
+
+### Expense chat 
+![Image](https://github.com/user-attachments/assets/6c311492-1c1d-4707-86f3-75987385a106)
